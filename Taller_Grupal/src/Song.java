@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package taller_3_modelado_de_objetos;
 
 import java.util.Date;
 
