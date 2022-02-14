@@ -23,7 +23,7 @@ public class Taller_3_Modelado_de_objetos {
      */
     public static void main(String[] args) throws IOException {
         String n="0";
-        int i;
+        int i=0;
         int j;
         
         Song[] main_library = new Song[3];
@@ -36,7 +36,7 @@ public class Taller_3_Modelado_de_objetos {
         
         BufferedReader k = new BufferedReader(new InputStreamReader(System.in));
         Song[] playlist = new Song[2];
-        int[] numeros = new int[2];
+        int[] numeros = new int[10];
         Scanner teclado = new Scanner(System.in);
         int l =main_library.length;
         System.out.println("El tamaño del arreglo es "+ l);
@@ -52,14 +52,12 @@ public class Taller_3_Modelado_de_objetos {
                 
             }
             System.out.println("Ingrese la identificación de la canción para agregarla a la play list");
-            for(i=0; i<numeros.length; i++)
-        {
+
             System.out.printf("Introduzca número %d: ", i+1);
             numeros[i] = teclado.nextInt();
-        }
 
-            playlist=pl.CreatePlaylist(main_library, numeros);
-        
+            
+            i++;
             System.out.println("Desea continuar, ingrese 0 si desea continuar 0 1 si desea salir");
             String af = k.readLine();
             if("0".equals(af))
@@ -78,14 +76,14 @@ public class Taller_3_Modelado_de_objetos {
 
         
         }
-        
+        playlist=pl.CreatePlaylist(main_library, numeros,i);
         System.out.println("La playlist creada contiene las siguientes canciones");
-        for (int o = 0; o < numeros.length; o++) {
+        for (int o = 0; o < i; o++) {
             System.out.println(playlist[o].title);
             
         }
         
-        sortLibrary = m.SortDuration(main_library, true,l);
+        sortLibrary = m.SortDuration(main_library, false,l);
         System.out.println("La lista ordernada por duración es:");
         for (int o = 0; o < l; o++) {
             System.out.println(sortLibrary[o].title);

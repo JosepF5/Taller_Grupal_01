@@ -1,18 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+*Esta clase tiene como propósito el generar la descripción de una bliblioteca de archivos de música, y
+* además se relacionan funcionalidades relacionadas con la misma.
+* 
+* @version [1.00.000 2022-02-14]
+*
+*
+* @author [Marleny Fernández Sandoval - marleny.19.fer@gmail.com]
+*
+* @since [1.00.000]
+*
+*/
+
 package taller_3_modelado_de_objetos;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 
-/**
- *
- * @author Marleny Fernández Sandoval
- */
+
 public class Music_Library {
     
     public Song song;
@@ -28,18 +33,48 @@ public class Music_Library {
     public Music_Library() {
     }
     
-    public Song[] CreatePlaylist(Song[] main_library,int[] numeros)
+/**
+* El método CreatePlaylist tiene como objetivo crear una lista de reproducción de música 
+* independiente de la biblioteca principal, allí el usuario seleccionara archivos de su preferencia
+* y creara una nueva lista.
+
+* @param main_library Representa la lista general de canciones de la biblioteca principal.
+* @param numeros Representa el arreglo que contiene la ID de las canciones seleccionadas por el usuario para la playlist.
+* @param len Representa la cantidad de canciones que el usuario ha seleccionado. 
+* @return Arraysong Representa una lista de canciones seleccionadas por el usuario para la nueva Playlist.
+* @throws Exception
+*
+* @author [Marleny Fernández Sandoval - marleny.19.fer@gmail.com]
+*
+* @since [1.00.000]
+*
+*/
+    public Song[] CreatePlaylist(Song[] main_library,int[] numeros, int len)
     {
         
         Song[] Arraysong= new Song[100];
-        for (int i = 0; i < numeros.length; i++) {
+        for (int i = 0; i < len; i++) {
            Arraysong[i]= main_library[numeros[i]]; 
         }
         
         return Arraysong;
         
     }
-    
+/**
+* El método SortDuration tiene como objetivo ordernar los elementos de la biblioteca principal por la duración 
+* de los archivos de audio.
+* 
+* @param main_library Representa la lista general de canciones de la biblioteca principal.
+* @param order Representa el orden en el que el usuario desea se despliegue la lista ordenada True - Ascendente, False - Descendente
+* @param tamaño Representa el tamaño del arreglo de la biblioteca principal.
+* @return SortArray El método retorna un arreglo que representa la lista ordenada de los archivos de audio por duración.
+* @throws Exception
+*
+* @author [Marleny Fernández Sandoval - marleny.19.fer@gmail.com]
+*
+* @since [1.00.000]
+*
+*/
     public Song[] SortDuration(Song[] main_library, boolean order, int tamaño)
     {
         Song[] SortArray = new Song[tamaño];
@@ -49,17 +84,25 @@ public class Music_Library {
             String[] dur = d.split(":");
             int dur1=Integer.parseInt(dur[0]+ dur[1]);
             durarray[j]=dur1;
-            System.out.println(dur1);
+           
                 
         }
         if(order== true)
         {
             Arrays.sort(durarray);
-            for (int i = 0; i < durarray.length; i++) {
-                System.out.println(durarray[i]);
-            }
             
         }
+        else
+        {
+            Arrays.sort(durarray);
+            int[] desarray = new int[durarray.length];
+            for(int i=0; i<durarray.length; i++) {
+                desarray[i] = durarray[(durarray.length-1)-i];
+            }
+            durarray = desarray;
+        }
+            
+        
 
         for (int i = 0; i < tamaño; i++) {
             String d1 = main_library[i].duration;
