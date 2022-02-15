@@ -1,6 +1,6 @@
 /**
 *Esta clase tiene como propósito el generar la descripción de una bliblioteca de archivos de música, y
-* además se relacionan funcionalidades relacionadas con la misma.
+*además se relacionan funcionalidades relacionadas con la misma.
 * 
 * @version [1.00.000 2022-02-14]
 *
@@ -20,14 +20,15 @@ import java.util.Date;
 
 public class Music_Library {
     
-    public Song song;
     
     Date fecha = new Date(95,01,01);
-    public Song song1 = new Song("Beat it", 000,fecha ,"01:30" , "pop", "c1.png", "Michael Jackson");
-    public Song song2 = new Song("Hurt", 001,fecha ,"00:20" , "Country", "c1.png", "Johny Cash");
-    public Song song3 = new Song("Mr. Tambourine", 002,fecha ,"04:10" , "Rock", "c1.png", "Bob Dylan");
+    public Song song1 = new Song("Beat it", 000,fecha ,"01:30" , "Pop", "c1.png", "Michael Jackson");
+    public Song song2 = new Song("Hurt", 001,fecha ,"00:20" , "Country", "c2.png", "Johny Cash");
+    public Song song3 = new Song("Mr. Tambourine", 002,fecha ,"04:10" , "Rock", "c3.png", "Bob Dylan");
+    public Song song4 = new Song("Bohemian Rapsody", 003,fecha ,"05:10" , "Rock", "c4.png", "Queen");
     
     public Song[] main_library = new Song[100];
+    
     
 
     public Music_Library() {
@@ -108,7 +109,7 @@ public class Music_Library {
             String d1 = main_library[i].duration;
             String[] durd = d1.split(":");
             int dur1d=Integer.parseInt(durd[0]+ durd[1]);
-            for (int j = 0; j <main_library.length ; j++) {
+            for (int j = 0; j <tamaño ; j++) {
                 if(dur1d==durarray[j])
                 {
                     SortArray[j]=main_library[i];
@@ -120,6 +121,31 @@ public class Music_Library {
         return SortArray;
     }
     
+    public Song[]  FilterGenre(Song[] playlist,String genre)
+    {
+        Song[] arrayfiltergenre = new Song[100];
+        int u = 0;
+        for (int i = 0; i < playlist.length; i++) {
+            if(playlist[i]== null)
+            {
+                break;
+            }
+            else
+            {
+                if(playlist[i].genre.equals(genre))
+                {
+                    System.out.println(playlist[i].title);
+                    arrayfiltergenre[u]= playlist[i];
+                    
+                    u++;
+                    
+                }
+            }
+        }
+        
+        return arrayfiltergenre;
+        
+    }
 
     
     
