@@ -62,12 +62,12 @@ public class Music_Library {
         
     }
 /**
-* El método SortDuration tiene como objetivo ordernar los elementos de la biblioteca principal por la duración 
+* El método SortDuration tiene como objetivo ordernar los elementos de la playlist creada por el usuario por la duración 
 * de los archivos de audio.
 * 
-* @param main_library Representa la lista general de canciones de la biblioteca principal.
+* @param main_library Representa la playlist que el usuario desea ordenar por duración.
 * @param order Representa el orden en el que el usuario desea se despliegue la lista ordenada True - Ascendente, False - Descendente
-* @param tamaño Representa el tamaño del arreglo de la biblioteca principal.
+* @param tamaño Representa el tamaño del arreglo de la playlist.
 * @return SortArray El método retorna un arreglo que representa la lista ordenada de los archivos de audio por duración.
 * @throws Exception
 *
@@ -121,6 +121,20 @@ public class Music_Library {
         return SortArray;
     }
     
+/**
+* El método FilterGenre tiene como objetivo filtrar los elementos de la playlist por el género
+* de los archivos de audio.
+* 
+* @param playlist Representa la lista de reproducción creada por el usuario.
+* @param genre Representa el género de tipo "String" ingresado por el usuario para filtrar.
+* @return arrayfiltergenre El método retorna un arreglo que representa la lista de las canciones
+* de la playlist que pertenecen al género a filtrar.
+* @throws Exception
+*
+* @author [Marleny Fernández Sandoval - marleny.19.fer@gmail.com]
+*
+* @since [1.00.000]
+*/
     public Song[]  FilterGenre(Song[] playlist,String genre)
     {
         Song[] arrayfiltergenre = new Song[100];

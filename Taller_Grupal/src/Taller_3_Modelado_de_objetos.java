@@ -19,6 +19,7 @@ public class Taller_3_Modelado_de_objetos {
         String n = "0";
         String p = "0";
         String genero;
+        boolean orden1;
         int i = 0;
         int j;
         
@@ -121,7 +122,19 @@ public class Taller_3_Modelado_de_objetos {
                 case "3":
                     break;
                 case "4":
-                    sortLibrary = m.SortDuration(playlist, true, i);
+                    System.out.println("Ingrese el orden en el que desea organizar los archivos");
+                    System.out.println("a --> Ascendente ");
+                    System.out.println("d --> Descendente ");
+                    String orden = k.readLine();
+                    if("a".equals(orden))
+                    {
+                        orden1 = true;
+                    }
+                    else
+                    {
+                        orden1 = false;
+                    }
+                    sortLibrary = m.SortDuration(playlist, orden1, i);
                     System.out.println("La lista ordernada por duración es:");
                     for (int o = 0; o < i; o++) {
                         System.out.println(sortLibrary[o].title);
