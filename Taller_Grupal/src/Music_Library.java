@@ -140,7 +140,11 @@ public class Music_Library {
             durarray = desarray;
         }
             
-        
+        /**
+         * Con la matriz de enteros que representan las duraciones ordenadas de las canciones de la Playlist el ciclo for 
+         * se encarga de ubicar estas duraciones en la Playlist original y crear un nuevo arreglo ordenado por duración SortArray
+         * que contiene los objetos Song con todos sus atributos.
+         */
 
         for (int i = 0; i < tamaÃ±o; i++) {
             String d1 = main_library[i].duration;
@@ -221,9 +225,16 @@ public class Music_Library {
 */
     public Song[]  FilterGenre(Song[] playlist,String genre)
     {
-        Song[] arrayfiltergenre = new Song[100];
-        int u = 0;
+        Song[] arrayfiltergenre = new Song[100]; /*Arreglo en el que se almacenaran los objetos Song o canciones de la Playlist por el género deseado por el usuario.*/
+        int u = 0; /*Índice para el almacenamiento en el arreglo arrayfiltergenre. */
+        /**
+         * Ciclo for que recorre la Playlist buscando las canciones con el género especificado por el usuario.
+         */
         for (int i = 0; i < playlist.length; i++) {
+            /**
+             * Condicional que evalua solo aquellas posiciones que contienen un Objeto Song y verifica si corresponde
+             * con el género deseado.
+             */
             if(playlist[i]== null)
             {
                 break;
