@@ -15,6 +15,9 @@ public class Taller_3_Modelado_de_objetos {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
+        /**
+         * Variable de validaciÛn para seguir ingresando nuevas canciones a la Playlist.
+         */
         String n = "0";
         String p = "0";
         String genero;
@@ -22,18 +25,52 @@ public class Taller_3_Modelado_de_objetos {
         boolean orden1;
         int i = 0;
         int j;
+        /**
+         * Arreglo de la clase Song que representa la Biblioteca principal de archivos de m˙sica.
+         */
         Song[] main_library = new Song[4];
+        /**
+         * Arreglo de la clase Song que representa el arreglo ordenado de la Playlist creada.
+         */
         Song[] sortLibrary = new Song[3];
+        /**
+         * Objeto de la clase Music_Library que permite el acceso a los diferentes mÈtodos de creaciÛn de Playlist, filtrado y ordenamiento.
+         */
         Music_Library m = new Music_Library();
         Music_Library pl = new Music_Library();
+        /**
+         * Arreglo de la clase Song que almacenar· la Playlist creada por el usuario.
+         */
         Song[] playlist = null;
+        /**
+         * Arreglo de la clase Song que almacenar· el filtro de los archivos de m˙sica filtrados por un gÈnero especificado por
+         * el usuario.
+         */
         Song[] filtergenre = null;
+        /**
+         * Arreglo que almacena los ID de las canciones que el usuario desea para su Playlist.
+         */
         int[] numeros = new int[10];
+        /**
+         * Variable que representa el tamaÒo del arreglo de la biblioteca principal.
+         */
         int l = main_library.length;
+        /**
+         * Variable que representa la opciÛn del men˙ que desea el usuario, por defecto se establece en cero para que el usuario
+         * pueda ingresar por primera vez al men˙.
+         */
         String option="0";
+        /**
+         * Objeto de tipo Scanner que permite el ingreso de datos por teclado.
+         */
         Scanner teclado = new Scanner(System.in);
+        /**
+         * Objeto de tipo BufferedReader que permite el ingreso de datos por teclado.
+         */
         BufferedReader k = new BufferedReader(new InputStreamReader(System.in));
-        
+        /**
+         * Almacenamiento de los objetos que representan los archivos de audio en la Biblioteca principal.
+         */
         main_library[0]= m.song1;
         main_library[1] = m.song2;
         main_library[2] = m.song3;
@@ -41,6 +78,9 @@ public class Taller_3_Modelado_de_objetos {
         
         
         System.out.println("---->  Biblioteca de reproducci√≥n de audio  <-----");
+        /**
+         * Ciclo While que permite la validaciÛn de los datos ingresados por teclado dentro de las opciones permitidas.
+         */
         while(Integer.parseInt(option)!=6){
         do {
             System.out.println("Men√∫: ");
