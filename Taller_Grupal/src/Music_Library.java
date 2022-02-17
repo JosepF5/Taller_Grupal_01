@@ -11,7 +11,7 @@
 *
 */
 
-package taller_3_modelado_de_objetos;
+//package taller_3_modelado_de_objetos;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,13 +19,10 @@ import java.util.Date;
 
 
 public class Music_Library {
-    
-    
-    Date fecha = new Date(95,01,01);
-    public Song song1 = new Song("Beat it", 000,fecha ,"01:30" , "Pop", "c1.png", "Michael Jackson");
-    public Song song2 = new Song("Hurt", 001,fecha ,"00:20" , "Country", "c2.png", "Johny Cash");
-    public Song song3 = new Song("Mr. Tambourine", 002,fecha ,"04:10" , "Rock", "c3.png", "Bob Dylan");
-    public Song song4 = new Song("Bohemian Rapsody", 003,fecha ,"05:10" , "Rock", "c4.png", "Queen");
+    public Song song1 = new Song("Beat it", 000,new Date(1990,01,02) ,"01:30" , "Pop", "c1.png", "Michael Jackson");
+    public Song song2 = new Song("Hurt", 001,new Date(1992,05,22) ,"00:20" , "Country", "c2.png", "Johny Cash");
+    public Song song3 = new Song("Mr. Tambourine", 002,new Date(1992,07,12) ,"04:10" , "Rock", "c3.png", "Bob Dylan");
+    public Song song4 = new Song("Bohemian Rapsody", 003,new Date(1995,01,05) ,"05:10" , "Rock", "c4.png", "Queen");
     
     public Song[] main_library = new Song[100];
     
@@ -120,6 +117,53 @@ public class Music_Library {
 
         return SortArray;
     }
+
+    public Song[] SortDate(Song[] main_library, boolean order, int tamaño)
+    {
+        Song[] SortArray = new Song[tamaño];
+        int[] durarray = new int[tamaño];
+        for (int j = 0; j < tamaño; j++) {
+            int anio = main_library[j].date.getYear();
+            int mes = main_library[j].date.getMonth();
+            int dia = main_library[j].date.getDate();
+            int dur1=anio*360+mes*30+dia;
+            durarray[j]=dur1;
+           
+                
+        }
+        if(order== true)
+        {
+            Arrays.sort(durarray);
+            
+        }
+        else
+        {
+            Arrays.sort(durarray);
+            int[] desarray = new int[durarray.length];
+            for(int i=0; i<durarray.length; i++) {
+                desarray[i] = durarray[(durarray.length-1)-i];
+            }
+            durarray = desarray;
+        }
+            
+        
+
+        for (int i = 0; i < tamaño; i++) {
+            int anio = main_library[i].date.getYear();
+            int mes = main_library[i].date.getMonth();
+            int dia = main_library[i].date.getDate();
+            int dur1=anio*360+mes*30+dia;
+            for (int j = 0; j <tamaño ; j++) {
+                if(dur1==durarray[j])
+                {
+                    SortArray[j]=main_library[i];
+                }
+                
+            }
+        }
+
+        return SortArray;
+    }
     
 /**
 * El método FilterGenre tiene como objetivo filtrar los elementos de la playlist por el género
@@ -148,11 +192,8 @@ public class Music_Library {
             {
                 if(playlist[i].genre.equals(genre))
                 {
-                    System.out.println(playlist[i].title);
                     arrayfiltergenre[u]= playlist[i];
-                    
                     u++;
-                    
                 }
             }
         }
@@ -160,7 +201,28 @@ public class Music_Library {
         return arrayfiltergenre;
         
     }
-
+    public Song[]  FilterDate(Song[] playlist,String date)
+    {
+        Song[] arrayfilterdate = new Song[100];
+        int u = 0;
+        for (int i = 0; i < playlist.length; i++) {
+            if(playlist[i]== null)
+            {
+                break;
+            }
+            else
+            {
+                if(((playlist[i].date.getYear()))==Integer.parseInt(date))
+                {
+                    arrayfilterdate[u]= playlist[i];
+                    u++;
+                }
+            }
+        }
+        
+        return arrayfilterdate;
+        
+    }
     
     
 }
