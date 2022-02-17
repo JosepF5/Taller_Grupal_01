@@ -19,6 +19,9 @@ import java.util.Date;
 
 
 public class Music_Library {
+    /**
+     * Objetos de la clase Song que representan los archivos de música que se van a ingresar a la biblioteca principal.
+     */
     public Song song1 = new Song("Beat it", 000,new Date(1990,01,02) ,"01:30" , "Pop", "c1.png", "Michael Jackson");
     public Song song2 = new Song("Hurt", 001,new Date(1992,05,22) ,"00:20" , "Country", "c2.png", "Johny Cash");
     public Song song3 = new Song("Mr. Tambourine", 002,new Date(1992,07,12) ,"04:10" , "Rock", "c3.png", "Bob Dylan");
@@ -49,8 +52,14 @@ public class Music_Library {
 */
     public Song[] CreatePlaylist(Song[] main_library,int[] numeros, int len)
     {
-        
+        /**
+         * Arreglo de la clase Song que almacena la Playlist creada por el usuario.
+         */
         Song[] Arraysong= new Song[100];
+        /**
+         * Ciclo for que se encarga de buscar las canciones con las ID especificadas por el usuario en el arreglo numeros
+         * en la Biblioteca principal y almacenarlas en el arreglo Arraysong creando así la Playlist.
+         */
         for (int i = 0; i < len; i++) {
            Arraysong[i]= main_library[numeros[i]]; 
         }
@@ -75,8 +84,18 @@ public class Music_Library {
 */
     public Song[] SortDuration(Song[] main_library, boolean order, int tamaÃ±o)
     {
+        /**
+         * Arreglo que almacena la Playlist ordenada por la duración de las canciones.
+         */
         Song[] SortArray = new Song[tamaÃ±o];
+        /**
+         * Arreglo que almacena la duración de cada una de las canciones.
+         */
         int[] durarray = new int[tamaÃ±o];
+        /**
+         * Ciclo for que se encarga de tomar la duración de las canciones de la Playlist convertirla de String a un entero y 
+         * y almacenarla en durarray.
+         */
         for (int j = 0; j < tamaÃ±o; j++) {
             String d = main_library[j].duration;
             String[] dur = d.split(":");
@@ -85,18 +104,39 @@ public class Music_Library {
            
                 
         }
+        /**
+         * Condicional que toma el orden en que el usuario desea ordenar la Playlist por duración siendo true ascendente.
+         */
         if(order== true)
         {
+            /**
+             * Método de ordenamiento ascendente del arreglo de enteros durarray.
+             */
             Arrays.sort(durarray);
             
         }
+        /**
+         * Condición en la que se toma el orden descendente para la Playlis, es decir que order es false.
+         */
         else
         {
+            /**
+             * Método de ordenamiento ascendente del arreglo de enteros durarray.
+             */
             Arrays.sort(durarray);
+            /**
+             * Arreglo auxiliar de tipo entero que almacena los valores enteros ordenados de forma descendente.
+             */
             int[] desarray = new int[durarray.length];
+            /**
+             * Ciclo for que se encarga de invertir el orden del arreglo originalmente ordenado de forma ascendente.
+             */
             for(int i=0; i<durarray.length; i++) {
                 desarray[i] = durarray[(durarray.length-1)-i];
             }
+            /**
+             * Reemplazo del arreglo de ordenamiento por el arreglo auxiliar.
+             */
             durarray = desarray;
         }
             
