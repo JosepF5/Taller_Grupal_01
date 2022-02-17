@@ -22,16 +22,23 @@ public class Taller_3_Modelado_de_objetos {
      */
     public static void main(String[] args) throws IOException {
         /**
-         * 
+         * Toma la escritura del usuario. Sirve para mantener cdg working mientras user wants.
          */
         String n="0";
+        /**
+         * ciclo for biblioteca principal (canciones)
+         */
         int i;
+        /**
+         * ciclo for impresion de la playlist creada
+         */
         int j;
         
         Song[] main_library = new Song[3];
         Song[] sortLibrary = new Song[3];
         Music_Library m = new Music_Library();
         Music_Library pl = new Music_Library();
+        
         main_library[0]= m.song1;
         main_library[1] = m.song2;
         main_library[2] = m.song3;
