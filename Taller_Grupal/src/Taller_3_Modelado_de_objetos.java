@@ -91,25 +91,39 @@ public class Taller_3_Modelado_de_objetos {
             System.out.println("5. Ordenar por fecha");
             System.out.println("6. Salir");
             System.out.println("Ingrese la opciÃ³n que desea realizar: ");
-            option = k.readLine();
+            option = k.readLine();/*Ingreso de datos por teclado de las opciones presentadas en el menú. */
         } while (Integer.parseInt(option)<1||Integer.parseInt(option)>6);
+        /**
+         * El Switch Case contiene todos los métodos presentados en el menú de opciones.
+         */
         switch (option) {
+            /**
+             * Caso número 1, permite la creación de la Playlist.
+             */
             case "1":
-                n = "0";
-                i=0;
+                n = "0"; /*Variable de validación del ciclo While que permite el ingreso de canciones a la Playlist. */
+                i=0; /* Indice de incremento de las posiciones para el almacenamiento de las Id de las canciones en el arreglo numeros.*/
                 while("0".equals(n))
                 {
                     System.out.println("Las canciones de la biblioteca son:");
-        
+                    /**
+                     * Ciclo for que permite la visualización de todas las canciones de la Biblioteca principal del reproductor.
+                     */
                     for ( j = 0; j < l; j++) {
                         System.out.println("El nombre de la canciÃ³n es "+main_library[j].title+ " y su identificaciÃ³n es "+main_library[j].ID );
                     }
                     System.out.println("Ingrese la identificaciÃ³n de la canciÃ³n para agregarla a la play list");
                     System.out.printf("Introduzca nÃºmero %d: ", i+1);
+                    /**
+                     * Arreglo que almacena las ID de las canciones seleccionadas para la Playlist.
+                     */
                     numeros[i] = teclado.nextInt();
                     i++;
                     System.out.println("Desea continuar, ingrese 0 si desea continuar y 1 si desea salir");
-                    String af = k.readLine();
+                    String af = k.readLine();/* Toma de datos por teclado para continuar o terminar la acción de agregar canciones a la Playlist.*/
+                    /**
+                     * Condicional de validación que permite continuar agregando nuevas canciones a la Playlist.
+                     */
                     if("0".equals(af))
                     {
                         System.out.println("Usted desea continuar");
@@ -121,23 +135,44 @@ public class Taller_3_Modelado_de_objetos {
                         n=af;
                     }
                 }
+                /**
+                 * Implementación del método Crear Playlist con la lista de ID ingresada por el usuario.
+                 */
                 playlist=pl.CreatePlaylist(main_library, numeros,i);
                 System.out.println("La playlist creada contiene las siguientes canciones");
-                
+                /**
+                 * Impresión de los títulos de las canciones agregadas a la Playlist.
+                 */
                 for (int o = 0; o < i; o++) {
                     System.out.println(playlist[o].title);
                 }
                 
                 break;
+                /**
+                 * Caso número 2, Permite el filtro de la Playlist por género.
+                 */
             case "2":
+                /**
+                 * Menú de los géneros musicales presentes en la biblioteca principal.
+                 */
                 System.out.println("Ingrese el gÃ©nero musical por el que desea filtrar ");
                 System.out.println("- Pop");
                 System.out.println("- Country");
                 System.out.println("- Rock");
-                genero =k.readLine();
+                genero =k.readLine(); /*Captura por teclado del género que desea filtrar el usuario.*/
+                /**
+                 * Implementación del método de Filtrado por género que devulve el grupo de canciones en un arreglo 
+                 * con el género deseado.
+                 */
                 filtergenre = m.FilterGenre(playlist, genero);
                 System.out.println("La playlist filtrada por el gÃ©nero "+ genero + " es:");
+                /**
+                 * Ciclo for que imprime las canciones de la Playlist con el género deseado.
+                 */
                 for (int o = 0; o < filtergenre.length; o++) {
+                    /**
+                     * Condicional que verifica unicamente las posiciones que contengan un objeto Song para imprimir su título.
+                     */
                     if(filtergenre[o]== null)
                     {
                         break;
