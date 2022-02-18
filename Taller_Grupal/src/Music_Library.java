@@ -233,7 +233,7 @@ public class Music_Library {
         for (int i = 0; i < playlist.length; i++) {
             /**
              * Condicional que evalua solo aquellas posiciones que contienen un Objeto Song y verifica si corresponde
-             * con el género deseado.
+             * con el género deseado para almacenarlo en el arreglo arrayfiltergenre.
              */
             if(playlist[i]== null)
             {
