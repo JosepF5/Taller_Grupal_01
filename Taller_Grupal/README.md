@@ -1,18 +1,9 @@
-## Getting Started
+## Taller Nº 3 Sofka
+## Autores : Marleny Fernández Sandoval, Josep
+            
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Tutor:Julian Lasso.
 
-## Folder Structure
+## Descripción: 
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+En los siguientes archivos se encuentra la solución al trabajo colaborativo número tres, este contiene tres archivos principales de los cuales dos  representan clases: la clase Music_Library la cual permite la instanciación de una biblioteca de reproducción de música y el acceso a los métodos de filtrado y ordenamiento del ejercicio, la otra clase presente Song permite la instanciación de los objetos que representan los archivos musicales que harán parte del reproductor.
