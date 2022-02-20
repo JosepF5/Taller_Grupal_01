@@ -5,7 +5,7 @@
 * @version [1.00.000 2022-02-14]
 *
 *
-* @author [Marleny FernÃ¡ndez Sandoval - marleny.19.fer@gmail.com]
+* @author [Marleny Fernández Sandoval - marleny.19.fer@gmail.com]
 *
 * @since [1.00.000]
 *
@@ -47,7 +47,7 @@ public class Song {
     public String description;
     
     /**
-     * Método constructor que permite la creación de objetos Song o canciones para la biblioteca principal.
+     * Constructor que permite la instanciación de objetos Song o canciones para la biblioteca principal.
      * @param title Título de la canción.
      * @param ID ID de la canción.
      * @param date Fecha de lanzamiento de la canción.
