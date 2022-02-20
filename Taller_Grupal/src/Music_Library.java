@@ -92,22 +92,22 @@ public class Music_Library {
      * @since [1.00.000]
      *
      */
-    public Song[] SortDuration(Song[] main_library, boolean order, int tamaño) {
+    public Song[] SortDuration(Song[] main_library, boolean order, int tamano) {
         /**
          * Arreglo que almacena la Playlist ordenada por la duración de las
          * canciones.
          */
-        Song[] SortArray = new Song[tamaño];
+        Song[] SortArray = new Song[tamano];
         /**
          * Arreglo que almacena la duración de cada una de las canciones.
          */
-        int[] durarray = new int[tamaño];
+        int[] durarray = new int[tamano];
         /**
          * Ciclo for que se encarga de tomar la duración de las canciones de la
          * Playlist convertirla de String a un entero y y almacenarla en
          * durarray.
          */
-        for (int j = 0; j < tamaño; j++) {
+        for (int j = 0; j < tamano; j++) {
             String d = main_library[j].duration;
             String[] dur = d.split(":");
             int dur1 = Integer.parseInt(dur[0] + dur[1]);
@@ -160,11 +160,11 @@ public class Music_Library {
          * por duración SortArray que contiene los objetos Song con todos sus
          * atributos.
          */
-        for (int i = 0; i < tamaño; i++) {
+        for (int i = 0; i < tamano; i++) {
             String d1 = main_library[i].duration;
             String[] durd = d1.split(":");
             int dur1d = Integer.parseInt(durd[0] + durd[1]);
-            for (int j = 0; j < tamaño; j++) {
+            for (int j = 0; j < tamano; j++) {
                 if (dur1d == durarray[j]) {
                     SortArray[j] = main_library[i];
                 }
@@ -192,20 +192,20 @@ public class Music_Library {
      * @since [1.00.000]
      *
      */
-    public Song[] SortDate(Song[] main_library, boolean order, int tamaño) {
+    public Song[] SortDate(Song[] main_library, boolean order, int tamano) {
         /**
          * Arreglo que almacenará la Playlist ordenada por fecha.
          */
-        Song[] SortArray = new Song[tamaño];
+        Song[] SortArray = new Song[tamano];
         /**
          * Arreglo que almacenará las fechas de la Playlist.
          */
-        int[] durarray = new int[tamaño];
+        int[] durarray = new int[tamano];
         /**
          * Ciclo for que busca las fechas de las canciones de la Playlist y las
          * adiciona en el arreglo durarray como un número entero.
          */
-        for (int j = 0; j < tamaño; j++) {
+        for (int j = 0; j < tamano; j++) {
             int anio = main_library[j].date.getYear();
             int mes = main_library[j].date.getMonth();
             int dia = main_library[j].date.getDate();
@@ -238,7 +238,7 @@ public class Music_Library {
          * los elementos del arreglo ordenado, una vez encontrado el elemento lo
          * asigna a la posición del arreglo durarray.
          */
-        for (int i = 0; i < tamaño; i++) {
+        for (int i = 0; i < tamano; i++) {
             /**
              * Obtención de la fecha de las canciones de la Playlist.
              */
@@ -252,7 +252,7 @@ public class Music_Library {
             /**
              * Ciclo for que recorre el arreglo durarray ordenado y la Playlist.
              */
-            for (int j = 0; j < tamaño; j++) {
+            for (int j = 0; j < tamano; j++) {
                 /**
                  * Condicional que evalúa si la fecha es igual a la posición del
                  * arreglo durarray ordenado.
