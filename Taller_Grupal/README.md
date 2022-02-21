@@ -1,5 +1,5 @@
 ## Taller Nº 3 Sofka
-## Autores : Marleny Fernández Sandoval, Josep
+## Autores : Marleny Fernández Sandoval, Josep Fabian Palomino Quispe
             
 
 ## Tutor:Julian Lasso.
