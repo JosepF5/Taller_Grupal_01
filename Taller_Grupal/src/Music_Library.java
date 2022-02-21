@@ -167,7 +167,7 @@ public class Music_Library {
     
 /**
 * El método FilterGenre tiene como objetivo filtrar los elementos de la playlist por el género
-* de los archivos de audio.
+* de los archivos de audio. si
 * 
 * @param playlist Representa la lista de reproducción creada por el usuario.
 * @param genre Representa el género de tipo "String" ingresado por el usuario para filtrar.
