@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 import java.util.Date;
 
 public abstract class ASpaceShips {
@@ -7,15 +7,11 @@ public abstract class ASpaceShips {
      */
     public int speed;
     /**
-     * Representa el o los agentes combustibles empleados para propulsar la nave espacial.
+     * Representa el combustible empleado para propulsar la nave espacial.
      */
-    public ArrayList<String> fuelType;
+    public String fuelType;
     /**
-     * Representa el estado de despegue de la nave espacial.
-     */
-    public boolean takingOff = false;
-    /**
-     * Representa la última fecha de lanzamiento de la nave espacial.
+     * Representa la fecha de lanzamiento de la nave espacial.
      */
     public Date launchDate;
     /**
@@ -37,10 +33,9 @@ public abstract class ASpaceShips {
      */
     public double weight;
     
-    protected ASpaceShips(int speed,ArrayList<String> fuelType,boolean takingOff,Date launchDate,String model,double thrust,double height,double weight){
+    protected ASpaceShips(int speed,String fuelType,Date launchDate,String model,double thrust,double height,double weight){
         this.speed = speed;
         this.fuelType = fuelType;
-        this.takingOff= takingOff;
         this.launchDate=launchDate;
         this.model = model;
         this.thrust=thrust;
@@ -51,21 +46,12 @@ public abstract class ASpaceShips {
     /**
      * Método para incrementar la velocidad de la nave espacial.
      */
-    public abstract int  increaseSpeed();
+    public abstract double  costoFabricacion(String fuelType, double weight,double height);
     
-    /**
-     * Método para despegar la nave espacial.
-     * @return Estado del despegue true = activo, false = inactivo.
-     */
-
-    public boolean startEngine() {
-      this.takingOff = true;
-      return takingOff;
-    };
     
     /**
      * Método para asignar la lista de combustibles y agentes oxidantes para la propulsión.
      * @param fuelType Lista de los elementos combustibles para la propulsión.
      */
-    public abstract void  setFuelType(ArrayList<String> fuelType);
+    public abstract void  capacidadCarga(String fuelType, double weight);
 }

@@ -1,33 +1,22 @@
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Genericas implements ISpaceShips{
-
+    /**
+     * Representa el color de la nave espacial.
+     */
     public String color;
     /**
      * Representa la fecha de lanzamiento de la nave espacial.
      */
     public Date launchDate;
     /**
-     * Representa la lista de los tipos de combustible de la nave espacial. 
+     * Representa el tipo de combustible de la nave espacial. 
      */
-    public ArrayList<String> fuelType;
+    public String fuelType;
     /**
      * Representa el modelo de la nave espacial.
      */
     public String model;
-    /**
-     * Representa el estado del despegue de la nave espacial.
-     */
-    public boolean takeoff = false;
-    /**
-     * Representa el estado del aterrizaje de la nave espacial.
-     */
-    public boolean landing = false;
-    /**
-     * Representa es estado en movimiento o suspendido de la nave espacial.
-     */
-    public boolean statusspaceships;
     
     /**
      * Constructor que permite crear un objeto Nave espacial genérica.
@@ -35,32 +24,90 @@ public class Genericas implements ISpaceShips{
      * @param launchDate Fecha de lanzamiento.
      * @param fuelType Combustible. 
      * @param model Modelo.
-     * @param statusspaceships Estado de la nave espacial. 
      */
 
-    public Genericas(String color, Date launchDate, ArrayList<String> fuelType, String model, boolean statusspaceships) {
+    public Genericas(String color, Date launchDate, String fuelType, String model) {
         this.color = color;
         this.launchDate = launchDate;
         this.fuelType = fuelType;
         this.model = model;
-        this.statusspaceships = statusspaceships;
     }
 
     @Override
-    public double capacidadCarga() {
-        return 0;
+    public void capacidadCarga(String fuelType, double weight) {
+        double capacidad,variableCarga;
+        switch (fuelType) {
+            case "TDMH":
+                variableCarga=5.12;
+                capacidad=(variableCarga*weight)/3.1314;
+                System.out.println("La capacidad de carga de la nave es: "+capacidad);
+                break;
+            case "Petroleo":
+                variableCarga=3.85;
+                capacidad=(variableCarga*weight)/3.1314;
+                System.out.println("La capacidad de carga de la nave es: "+capacidad);
+                break;
+            default:
+                System.out.println("Desconocido. Pruebe con otra alternativa.");
+                break;
+        }
     }
     @Override
-    public double capacidadPotencia() {
-        return 0;
+    public void capacidadPotencia(String fuelType) {
+        double capacidad,variablePotencia;
+        switch (fuelType) {
+            case "TDMH":
+                variablePotencia=21.15;
+                capacidad=(variablePotencia)/(3.1314*9.81);
+                System.out.println("La capacidad de potencia de la nave es: "+capacidad);
+                break;
+            case "Petroleo":
+                variablePotencia=15.50;
+                capacidad=(variablePotencia)/(3.1314*9.81);
+                System.out.println("La capacidad de potencia de la nave es: "+capacidad);
+                break;
+            default:
+                System.out.println("Desconocido. Pruebe con otra alternativa.");
+                break;
+        }
     }
     @Override
-    public double capacidadVelocidad() {
-        return 0;
+    public void capacidadVelocidad(double weight, double height) {
+        double capacidad,variableVelocidad;
+        switch (fuelType) {
+            case "TDMH":
+                variableVelocidad=123.242;
+                capacidad=(variableVelocidad)/(3.1314*height);
+                System.out.println("La capacidad de velocidad de la nave es: "+capacidad);
+                break;
+            case "Petroleo":
+                variableVelocidad=785.453;
+                capacidad=(variableVelocidad)/(3.1314*height);
+                System.out.println("La capacidad de velocidad de la nave es: "+capacidad);
+                break;
+            default:
+                System.out.println("Desconocido. Pruebe con otra alternativa.");
+                break;
+        }
     }
     @Override
-    public double costoFabricacion() {
-        return 0;
+    public void costoFabricacion(String fuelType, double weight,double height) {
+        double capacidad,variableFabricacion;
+        switch (fuelType) {
+            case "TDMH":
+                variableFabricacion=211.122;
+                capacidad=(variableFabricacion)/(weight*height);
+                System.out.println("La capacidad de fabricacion de la nave es: "+capacidad);
+                break;
+            case "Petroleo":
+                variableFabricacion=967.453;
+                capacidad=(variableFabricacion)/(weight*height);
+                System.out.println("La capacidad de fabricacion de la nave es: "+capacidad);
+                break;
+            default:
+                System.out.println("Desconocido. Pruebe con otra alternativa.");
+                break;
+        }
     }
 
 }
