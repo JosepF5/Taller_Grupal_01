@@ -1,0 +1,1 @@
+let anm=require('./animal')
